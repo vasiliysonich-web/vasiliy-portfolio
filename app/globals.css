@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #0A0A0A;
+  --foreground: #FFFFFF;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: var(--background);
+  color: var(--foreground);
+  overflow-x: hidden;
+}
+
+@layer components {
+  .glass-card {
+    @apply relative overflow-hidden rounded-2xl;
+    background: rgba(26, 26, 46, 0.65);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+
+  .glass-card-hover {
+    @apply glass-card transition-all duration-300 cursor-pointer;
+  }
+
+  .glass-card-hover:hover {
+    box-shadow: 0 8px 32px rgba(168, 85, 247, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transform: translateY(-4px);
+  }
+
+  .glass-card-premium {
+    @apply relative overflow-hidden rounded-3xl;
+    background: linear-gradient(135deg, rgba(26, 26, 46, 0.8) 0%, rgba(50, 30, 80, 0.6) 100%);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border: 1px solid rgba(168, 85, 247, 0.2);
+    box-shadow: 0 10px 40px rgba(168, 85, 247, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  }
+
+  .glass-card-premium:hover {
+    border: 1px solid rgba(168, 85, 247, 0.4);
+    box-shadow: 0 15px 50px rgba(168, 85, 247, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  }
+
+  .glass-button {
+    @apply relative overflow-hidden rounded-xl font-semibold transition-all duration-300;
+    background: linear-gradient(135deg, #A855F7 0%, #FF2E9A 100%);
+    box-shadow: 0 4px 15px rgba(168, 85, 247, 0.4);
+  }
+
+  .glass-button:hover {
+    box-shadow: 0 8px 30px rgba(168, 85, 247, 0.6), 0 0 50px rgba(168, 85, 247, 0.3);
+    transform: translateY(-2px);
+  }
+
+  .glass-button-secondary {
+    @apply relative overflow-hidden rounded-xl font-semibold transition-all duration-300 border border-white/20;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+  }
+
+  .glass-button-secondary:hover {
+    @apply border-neon-cyan/50;
+    background: rgba(0, 240, 255, 0.1);
+    box-shadow: 0 0 30px rgba(0, 240, 255, 0.2);
+  }
+
+  .glass-button-glow {
+    @apply relative overflow-hidden rounded-xl font-bold transition-all duration-300 px-8 py-4;
+    background: linear-gradient(135deg, #A855F7 0%, #FF0099 50%, #00D4FF 100%);
+    box-shadow: 0 0 30px rgba(168, 85, 247, 0.6), 0 0 60px rgba(255, 0, 153, 0.3);
+  }
+
+  .glass-button-glow:hover {
+    box-shadow: 0 0 50px rgba(168, 85, 247, 0.8), 0 0 100px rgba(255, 0, 153, 0.5), 0 0 150px rgba(0, 212, 255, 0.3);
+    transform: translateY(-4px) scale(1.05);
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #A855F7 0%, #FF2E9A 50%, #00F0FF 100%);
+  }
+
+  .gradient-text-purple {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #A855F7 0%, #FF2E9A 100%);
+  }
+
+  .gradient-text-pink-cyan {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #FF0099 0%, #00D4FF 100%);
+  }
+
+  .neon-glow {
+    text-shadow: 0 0 10px rgba(168, 85, 247, 0.8), 0 0 20px rgba(168, 85, 247, 0.6), 0 0 30px rgba(168, 85, 247, 0.4);
+  }
+
+  .neon-glow-purple {
+    text-shadow: 0 0 20px rgba(168, 85, 247, 0.8), 0 0 40px rgba(168, 85, 247, 0.6), 0 0 60px rgba(168, 85, 247, 0.4);
+  }
+
+  .neon-glow-pink {
+    text-shadow: 0 0 20px rgba(255, 0, 153, 0.8), 0 0 40px rgba(255, 0, 153, 0.6), 0 0 60px rgba(255, 0, 153, 0.4);
+  }
+
+  .neon-glow-cyan {
+    text-shadow: 0 0 20px rgba(0, 212, 255, 0.8), 0 0 40px rgba(0, 212, 255, 0.6), 0 0 60px rgba(0, 212, 255, 0.4);
+  }
+
+  .glow-text {
+    text-shadow: 0 0 20px rgba(168, 85, 247, 0.5), 0 0 40px rgba(255, 46, 154, 0.3);
+    filter: drop-shadow(0 0 10px rgba(168, 85, 247, 0.4));
+  }
+
+  .stat-number {
+    @apply text-5xl md:text-6xl lg:text-7xl font-black;
+    background: linear-gradient(135deg, #A855F7 0%, #FF0099 50%, #00D4FF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 20px rgba(168, 85, 247, 0.4));
+  }
+
+  .stat-number:hover {
+    filter: drop-shadow(0 0 40px rgba(168, 85, 247, 0.7)) drop-shadow(0 0 20px rgba(255, 0, 153, 0.5));
+  }
+
+  @keyframes gradient-flow {
+    0% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .animate-gradient-flow {
+    animation: gradient-flow 3s ease infinite;
+  }
+
+  @keyframes pulse-glow {
+
+    0%,
+    100% {
+      opacity: 0.6;
+    }
+
+    50% {
+      opacity: 1;
+    }
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  @keyframes float {
+
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+}
+
+.bg-grid {
+  background-image: linear-gradient(rgba(168, 85, 247, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(168, 85, 247, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+.bg-gradient-radial {
+  background: radial-gradient(ellipse at center, rgba(168, 85, 247, 0.15) 0%, transparent 70%);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0A0A0A;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #A855F7, #FF2E9A);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #7C3AED, #E91E8C);
+}
+
+::selection {
+  background: rgba(168, 85, 247, 0.3);
+  color: #FFFFFF;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite linear;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  background-size: 200% 100%;
+}

@@ -1,0 +1,26 @@
+stall
+react@19.2.5 | MIT | deps: none | versions: 2781
+React is a JavaScript library for building user interfaces.
+https://react.dev/
+
+keywords: react
+
+dist
+.tarball: https://registry.npmjs.org/react/-/react-19.2.5.tgz
+.shasum: c888ab8b8ef33e2597fae8bdb2d77edbdb42858b
+.integrity: sha512-llUJLzz1zTUBrskt2pwZgLq59AemifIftw4aB7JxOqf1HY2FDaGDxgwpAPVzHU1kdWabH7FauP4i1oEeer2WCA==
+.unpackedSize: 171.6 kB
+
+maintainers:
+- fb <opensource+npm@fb.com>
+- react-bot <react-core@meta.com>
+
+dist-tags:
+latest: 19.2.5
+experimental: 0.0.0-experimental-56824423-20260414
+next: 19.3.0-canary-56824423-20260414
+canary: 19.3.0-canary-56824423-20260414
+rc: 19.0.0-rc.1
+(...and 1 more.)
+
+published 6 days ago by react-bot <react-core@meta.com>
