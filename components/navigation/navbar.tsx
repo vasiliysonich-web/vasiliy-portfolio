@@ -9,8 +9,6 @@ import { cn } from "@/lib/utils";
 const navItems = [
   { href: "#about", label: "Обо мне" },
   { href: "#services", label: "Услуги" },
-  { href: "#cases", label: "Кейсы" },
-  { href: "#reviews", label: "Отзывы друзей" },
   { href: "#contact", label: "Контакты" },
 ];
 

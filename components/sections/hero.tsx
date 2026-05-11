@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Sparkles, ArrowRight, Bot } from "lucide-react";
+import { Sparkles, Bot } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
@@ -79,38 +79,9 @@ export default function Hero() {
               <span className="text-neon-pink font-bold">
                 вирусные сценарии
               </span>{" "}
-              для Reels, усиленные мощью нейросетей. Гарантирую рост охватов,
-              вовлечённости и реальных продаж.
+              для Reels, усиленные мощью нейросетей. Помогаю запускать кампании,
+              которые работают.
             </motion.p>
-
-            {/* Stats with Glow */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              className="flex flex-wrap justify-center lg:justify-start gap-8 mb-12"
-            >
-              {[
-                { value: "100+", label: "Кейсов", accent: "purple" },
-                { value: "50M+", label: "Охватов", accent: "pink" },
-                { value: "65%", label: "Рост продаж", accent: "cyan" },
-              ].map((stat, index) => (
-                <motion.div
-                  key={index}
-                  whileHover={{ scale: 1.1, y: -5 }}
-                  className="text-center group cursor-default"
-                >
-                  <div
-                    className={`text-4xl md:text-5xl font-black stat-number group-hover:scale-110 transition-transform origin-center drop-shadow-lg`}
-                  >
-                    {stat.value}
-                  </div>
-                  <div className="text-sm text-white/70 mt-2 font-semibold uppercase tracking-wide">
-                    {stat.label}
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
 
             {/* CTA Buttons */}
             <motion.div
@@ -119,19 +90,6 @@ export default function Hero() {
               transition={{ delay: 0.6 }}
               className="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start"
             >
-              <motion.button
-                whileHover={{ scale: 1.05, y: -4 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() =>
-                  document
-                    .getElementById("cases")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
-                className="glass-button-glow px-10 py-4 rounded-2xl font-bold text-white text-lg flex items-center justify-center gap-3 group"
-              >
-                <span>Посмотреть кейсы</span>
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
-              </motion.button>
               <motion.button
                 whileHover={{ scale: 1.05, y: -4 }}
                 whileTap={{ scale: 0.95 }}
