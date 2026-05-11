@@ -116,12 +116,12 @@ export default function Contact() {
                       Telegram
                     </div>
                     <a
-                      href="https://t.me/s_vs_iv"
+                      href="https://t.me/djmvash_bot"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-lg font-semibold text-white group-hover:text-neon-pink transition-colors"
                     >
-                      @s_vs_iv
+                      @djmvash_bot
                     </a>
                   </div>
                   <ExternalLink className="w-5 h-5 text-white/40 group-hover:text-neon-pink transition-colors" />
@@ -178,7 +178,7 @@ export default function Contact() {
                 <motion.a
                   whileHover={{ scale: 1.15, y: -8 }}
                   whileTap={{ scale: 0.95 }}
-                  href="https://t.me/s_vs_iv"
+                  href="https://t.me/djmvash_bot"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-14 h-14 rounded-2xl bg-gradient-to-br from-neon-pink/30 to-neon-cyan/30 border border-neon-pink/50 flex items-center justify-center hover:shadow-glow-pink transition-all group"

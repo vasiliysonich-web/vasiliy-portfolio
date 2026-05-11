@@ -93,7 +93,9 @@ export default function Hero() {
               <motion.button
                 whileHover={{ scale: 1.05, y: -4 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => window.open("https://t.me/s_vs_iv", "_blank")}
+                onClick={() =>
+                  window.open("https://t.me/djmvash_bot", "_blank")
+                }
                 className="glass-card-hover px-10 py-4 rounded-2xl font-bold text-white text-lg flex items-center justify-center gap-3 group border-2 border-neon-cyan/50 hover:border-neon-cyan transition-all"
               >
                 <svg
