@@ -25,10 +25,36 @@ export default function Contact() {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitted(true);
-    setTimeout(() => setIsSubmitted(false), 3000);
+    setIsSubmitting(true);
+    setError(null);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || "Ошибка отправки");
+      }
+
+      setIsSubmitted(true);
+      setFormData({ name: "", email: "", message: "" });
+      setTimeout(() => setIsSubmitted(false), 5000);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Произошла ошибка");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -286,11 +312,31 @@ export default function Contact() {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     type="submit"
-                    className="w-full glass-button-glow py-4 px-6 rounded-2xl font-bold text-white text-lg flex items-center justify-center gap-3 group"
+                    disabled={isSubmitting}
+                    className="w-full glass-button-glow py-4 px-6 rounded-2xl font-bold text-white text-lg flex items-center justify-center gap-3 group disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    Отправить заявку
+                    {isSubmitting ? (
+                      <>
+                        <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                        Отправка...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                        Отправить заявку
+                      </>
+                    )}
                   </motion.button>
+
+                  {error && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="mt-4 p-4 rounded-xl bg-red-500/20 border border-red-500/50 text-red-300 text-center"
+                    >
+                      {error}
+                    </motion.div>
+                  )}
                 </form>
               )}
             </div>
