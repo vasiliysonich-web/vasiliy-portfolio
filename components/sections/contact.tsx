@@ -43,8 +43,19 @@ export default function Contact() {
       });
 
       if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || "Ошибка отправки");
+        const text = await response.text();
+        let errorMessage = "Ошибка отправки";
+
+        try {
+          const errorData = JSON.parse(text);
+          errorMessage = errorData.error || errorMessage;
+        } catch {
+          if (text) {
+            errorMessage = text;
+          }
+        }
+
+        throw new Error(errorMessage);
       }
 
       setIsSubmitted(true);
